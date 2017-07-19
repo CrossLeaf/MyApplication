@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+
+    <string-array name="type">
+        <item>FTP(File Transfer Protocol)</item>
+        <item>FTPS(Implicit FTP TLS/SSL)</item>
+    </string-array>
 </resources>

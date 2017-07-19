@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), QRCodeActivity.class);
                         startActivity(intent);
                         break;
+                    case 1:
+                        intent = new Intent(getApplicationContext(), FTPActivity.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     public List<String> getData() {
         List<String> dataList = new ArrayList<>();
         dataList.add("QR code 測試");
+        dataList.add("FTP 測試");
         return dataList;
     }
 
