@@ -15,6 +15,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int QR_CODE_TEST = 0;
+    private static final int FTP_TEST = 1;
+    private static final int RESTART_APP = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +36,32 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 Intent intent;
                 switch (position) {
-                    case 0:
+                    case QR_CODE_TEST:
                         intent = new Intent(getApplicationContext(), QRCodeActivity.class);
                         startActivity(intent);
                         break;
-                    case 1:
+                    case FTP_TEST:
                         intent = new Intent(getApplicationContext(), FTPActivity.class);
                         startActivity(intent);
+                        break;
+                    case RESTART_APP:
+                        Intent i = getBaseContext().getPackageManager().
+                                getLaunchIntentForPackage(getBaseContext().getPackageName());
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
                         break;
                 }
             }
         });
     }
 
+    // 要增加的功能
     public List<String> getData() {
         List<String> dataList = new ArrayList<>();
         dataList.add("QR code 測試");
         dataList.add("FTP 測試");
+        dataList.add("重啟 APP");
         return dataList;
     }
 
