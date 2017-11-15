@@ -20,6 +20,12 @@
         </activity>
         <activity android:name=".QRCodeActivity" />
         <activity android:name=".FTPActivity"></activity>
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
